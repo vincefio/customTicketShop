@@ -3,4 +3,18 @@
 .homeWrap{
   height: 100vh;
   background-color: #0015FF;
+  padding-top: 25px;
+}
+
+.nav{
+  
+  background-color: #f7f7f7;
+}
+
+nav{
+
+}
+
+.brand-logo{
+  color: black !important;
 }
