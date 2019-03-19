@@ -16,8 +16,25 @@ export default class Home extends Component {
     var modal =  
     <div id="modal1" class="modal">
       <div class="modal-content">
-        <h4>Confirm this order</h4>
-        <p>Are you sure you want to make this delivery?</p>
+        <h4>Create Your Tickets</h4>
+        <form>
+            <div class="input-field col s6">
+                <input id="event_name" type="text" class="validate"></input>
+                <label for="event_name">Event Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="venue_name" type="text" class="validate"></input>
+                <label for="venue_name">Name of Venue</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="ticket_price" type="text" class="validate"></input>
+                <label for="ticket_price">Single Ticket Price</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="number_of_ticets" type="text" class="validate"></input>
+                <label for="number_of_ticets">How Many Tickets</label>
+            </div>
+        </form>
       </div>
       <div class="modal-footer">
         <a onClick={this.handleSubmit} href="#!" class="modal-close waves-effect waves-green btn-flat">Confirm</a>
