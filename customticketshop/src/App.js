@@ -18,23 +18,34 @@ class App extends Component {
     this.authListener();
   }
 
-  authListener(){
+  authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
       if(user){
         this.setState({ user });
+        console.log('USER')
       }else{
         this.setState({ user: null })
+        console.log('NO USER')
       }
     })
   }
 
   render() {
     return (
-      <div className="">
-       
-
+      <div className="App">
         <Nav />
-        <Route exact path="/" component={Home} />
+        
+        {
+          !this.state.user &&
+            <Route exact path='/' component={Login} />
+            
+        }
+        {
+          this.state.user && 
+            <Route exact path='/' component={Home} />
+        }
+        
+        {/* <Route exact path="/" component={Home} /> */}
         <Route exact path="/login" component={Login} />
       </div>
     );
