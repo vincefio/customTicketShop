@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from './components/Home.js';
 import Nav from './components/Nav.js'
 import Login from './components/Login.js'
+import Dashboard from './components/Dashboard.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import fire from './config/firebase.js'
 import './App.css';
@@ -22,10 +23,10 @@ class App extends Component {
     fire.auth().onAuthStateChanged((user) => {
       if(user){
         this.setState({ user });
-        console.log('USER')
+
       }else{
         this.setState({ user: null })
-        console.log('NO USER')
+
       }
     })
   }
@@ -33,7 +34,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
+        <Nav user={this.state.user}/>
+        
         
         {
           !this.state.user &&
@@ -47,6 +49,7 @@ class App extends Component {
         
         {/* <Route exact path="/" component={Home} /> */}
         <Route exact path="/login" component={Login} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </div>
     );
   }

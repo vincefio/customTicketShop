@@ -6,16 +6,19 @@ import fire from '../config/firebase';
 export default class Nav extends Component {
     constructor(props){
         super(props)
+
+        console.log(this.props)
     }
 
     componentDidMount() {
         let elems = document.querySelectorAll('.dropdown-trigger');
-        M.Dropdown.init(elems, { inDuration: 300, outDuration: 225 });
+        this.elems = elems
+        //M.Dropdown.init(elems, { inDuration: 300, outDuration: 225 });
 
     }
 
     signOut = () => {
-        console.log('clicked')
+        ///console.log('clicked')
         fire.auth().signOut();
     }
 
@@ -30,6 +33,8 @@ export default class Nav extends Component {
                       <ul id="nav-mobile" className="right ">
     
                     <li className="hide-on-med-and-down"><Link to="/">Home</Link></li> 
+
+                    <li className="hide-on-med-and-down"><Link to="/dashboard">Dashboard</Link></li> 
                  
                     <li onClick={this.signOut} className="hide-on-med-and-down"><Link to="/">Logout</Link></li>
                 
@@ -54,9 +59,10 @@ export default class Nav extends Component {
                       <ul id="nav-mobile" className="right ">
     
                     <li className="hide-on-med-and-down"><Link to="/">Home</Link></li> 
+                    
                 
                     <li onClick={this.signOut} className="hide-on-med-and-down"><Link to="/">Logout</Link></li>
-
+                    <a className='dropdown-trigger hide-on-large-only' href='#' data-target='dropdown1'><i className='material-icons'>dehaze</i></a>
                        
                     </ul>
                   </div>
